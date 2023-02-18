@@ -14,7 +14,7 @@ public class LessonController {
     private LessonService lessonService;
 
     @GetMapping
-    public String getStudentList(){
+    public String getLessonList(){
         return "lesson/list";
     }
 
