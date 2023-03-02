@@ -14,6 +14,6 @@ public class StudentController {
 
     @GetMapping
     public String getStudentList(){
-        return "teacher/list";
+        return "student/list";
     }
 }

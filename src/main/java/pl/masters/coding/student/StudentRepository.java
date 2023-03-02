@@ -2,6 +2,7 @@ package pl.masters.coding.student;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
+import pl.masters.coding.common.Language;
 import pl.masters.coding.student.model.Student;
 
 import java.util.ArrayList;
@@ -21,15 +22,15 @@ public class StudentRepository {
         Student studentOne = Student.builder()
                 .id(1L)
                 .firstName("Piotr")
-                .language("Żyła")
-                .language("ang")
+                .lastName("Żyła")
+                .language(Language.ITALIAN)
                 .build();
 
         Student studentTwo = Student.builder()
                 .id(1L)
                 .firstName("Adam")
-                .language("Małysz")
-                .language("ang")
+                .lastName("Małysz")
+                .language(Language.ARABIC)
                 .build();
 
         dummyStudentDb.add(studentOne);

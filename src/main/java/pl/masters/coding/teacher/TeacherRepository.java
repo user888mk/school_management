@@ -2,6 +2,7 @@ package pl.masters.coding.teacher;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
+import pl.masters.coding.common.Language;
 import pl.masters.coding.teacher.model.Teacher;
 
 import java.util.ArrayList;
@@ -19,14 +20,16 @@ public class TeacherRepository {
     @PostConstruct
     private static void init() {
         Teacher teacher1 = Teacher.builder()
-                .id(1)
+                .id(1L)
                 .firstName("Jan")
                 .lastName("Kowalski")
+                .languageList(List.of(Language.ARABIC, Language.FRENCH, Language.SPANISH))
                 .build();
         Teacher teacher2 = Teacher.builder()
-                .id(2)
+                .id(2L)
                 .firstName("Janek")
                 .lastName("Kowal")
+                .languageList(List.of(Language.ENGLISH, Language.JAPANESE))
                 .build();
         dummyTeacherDb.add(teacher1);
         dummyTeacherDb.add(teacher2);
