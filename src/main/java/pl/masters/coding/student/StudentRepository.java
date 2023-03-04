@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 import pl.masters.coding.common.Language;
 import pl.masters.coding.student.model.Student;
+import pl.masters.coding.teacher.model.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,11 @@ public class StudentRepository {
 
     public List<Student> findAll() {
         return dummyStudentDb;
+    }
+
+    public void save(Student student) {
+        dummyStudentDb.add(student);
+        student.setId((long) dummyStudentDb.size());
     }
 
     @PostConstruct
@@ -37,4 +43,5 @@ public class StudentRepository {
         dummyStudentDb.add(studentTwo);
 
     }
+
 }
