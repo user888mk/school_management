@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.masters.coding.common.Language;
 import pl.masters.coding.teacher.model.Teacher;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class TeacherController {
     public String getTeacherList(Model model) {
         List<Teacher> allTeachers = teacherService.findAll();
         model.addAttribute("teachers", allTeachers);
+        model.addAttribute("languages", Language.values());
         return "teacher/list";
     }
 
@@ -28,11 +30,11 @@ public class TeacherController {
     //formularz html - zeby tworzyc nowy obiekt - strona na której bedzie chciała uzyskac dane
 
 
-    @GetMapping("/create")
-    public String getTeacher(Model model) {
-        model.addAttribute("newTeacher", new Teacher());
-        return "redirect:/teachers";
-    }
+//    @GetMapping("/create")
+//    public String getTeacher(Model model) {
+//        model.addAttribute("newTeacher", new Teacher());
+//        return "redirect:/teachers";
+//    }
 
     @PostMapping("/create")
     //elementy z formularza - przekazane do metody (widok) - modelAttribute
@@ -43,7 +45,7 @@ public class TeacherController {
     }
 
     @GetMapping("/delete")
-    public String deleteTeacher(@RequestParam Integer id) {
+    public String deleteTeacher(@RequestParam Long id) {
         teacherService.deleteTeacher(id);
         return "redirect:/teachers";
     }
