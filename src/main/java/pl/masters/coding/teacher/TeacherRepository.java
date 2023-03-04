@@ -17,19 +17,24 @@ public class TeacherRepository {
         return dummyTeacherDb;
     }
 
+    public void save(Teacher teacher) {
+        dummyTeacherDb.add(teacher);
+        teacher.setId((long) dummyTeacherDb.size());
+    }
+
     @PostConstruct
     private static void init() {
         Teacher teacher1 = Teacher.builder()
-                .id(1)
+                .id(1L)
                 .firstName("Jan")
                 .lastName("Kowalski")
-                .languageList(List.of(Language.ARABIC, Language.FRENCH, Language.SPANISH))
+                .languages(List.of(Language.ARABIC, Language.FRENCH, Language.SPANISH))
                 .build();
         Teacher teacher2 = Teacher.builder()
-                .id(2)
+                .id(2L)
                 .firstName("Janek")
                 .lastName("Kowal")
-                .languageList(List.of(Language.ENGLISH, Language.JAPANESE))
+                .languages(List.of(Language.ENGLISH, Language.JAPANESE))
                 .build();
         dummyTeacherDb.add(teacher1);
         dummyTeacherDb.add(teacher2);

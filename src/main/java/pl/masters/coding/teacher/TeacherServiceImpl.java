@@ -16,13 +16,12 @@ public class TeacherServiceImpl  {
         return teacherRepository.findAll();
     }
 
-    public void deleteTeacher(Integer id) {
+    public void deleteTeacher(Long id) {
         List<Teacher> teacherList = teacherRepository.findAll();
         teacherList.removeIf(teacher -> teacher.getId().equals(id));
     }
 
     public void createTeacher(Teacher teacher) {
-        List<Teacher> teacherList = teacherRepository.findAll();
-        teacherList.add(teacher);
+        teacherRepository.save(teacher);
     }
 }

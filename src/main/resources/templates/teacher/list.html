@@ -3,11 +3,11 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
 
     <title>Teachers!</title>
 </head>
@@ -31,7 +31,7 @@
         <td th:text="${teacher.id}"></td>
         <td th:text="${teacher.firstName}"></td>
         <td th:text="${teacher.lastName}"></td>
-        <td th:text="${teacher.languageList}"></td>
+        <td th:text="${teacher.languages}"></td>
 
         <td><a th:href="@{teachers/delete(id=${teacher.id})}" class="btn btn-warning">DELETE </a>
         <td><a th:href="@{/edit(id=${teacher.id})}" class="btn btn-light">EDIT </a>
@@ -42,10 +42,6 @@
 <form th:action="@{teachers/create}" method="post">
 
     <h1>Add new Teacher</h1>
-    <div class="form-group">
-        <label for="id" class="form-label">id</label>
-        <input type="text" class="form-control" name="ide" id="id">
-    </div>
 
     <div class="form-group">
         <label for="firstName" class="form-label">first name</label>
@@ -58,8 +54,10 @@
     </div>
 
     <div class="form-group">
-        <label for="languageList" class="form-label">language list</label>
-        <input type="text" class="form-control" name="languageList" id="languageList">
+        <label for="languages" class="form-label">language list</label>
+        <select class="form-control" name="languages" id="languages" multiple>
+            <option th:each="language : ${languages}" th:text="${language}" th:value="${language}"></option>
+        </select>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
