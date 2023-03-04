@@ -40,7 +40,8 @@ public class TeacherController {
     //elementy z formularza - przekazane do metody (widok) - modelAttribute
     public String createTeacher(@ModelAttribute Teacher teacher) {
         teacherService.createTeacher(teacher);
-        System.out.println(teacher);
+        System.out.println(teacher); //podmienic na logger
+
         return "redirect:/teachers";
     }
 
@@ -49,6 +50,8 @@ public class TeacherController {
         teacherService.deleteTeacher(id);
         return "redirect:/teachers";
     }
-
+    //docker + wsl
+    //mySQl workbench
+    //
 
 }
