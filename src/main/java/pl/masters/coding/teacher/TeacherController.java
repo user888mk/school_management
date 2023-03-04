@@ -28,13 +28,14 @@ public class TeacherController {
     //formularz html - zeby tworzyc nowy obiekt - strona na której bedzie chciała uzyskac dane
 
 
-//    @GetMapping("/create")
-//    public String getTeacher(Model model) {
-//        model.addAttribute("newTeacher", new Teacher());
-//        return "teacher/list";
-//    }
+    @GetMapping("/create")
+    public String getTeacher(Model model) {
+        model.addAttribute("newTeacher", new Teacher());
+        return "redirect:/teachers";
+    }
 
     @PostMapping("/create")
+    //elementy z formularza - przekazane do metody (widok) - modelAttribute
     public String createTeacher(@ModelAttribute Teacher teacher) {
         teacherService.createTeacher(teacher);
         System.out.println(teacher);
@@ -42,7 +43,7 @@ public class TeacherController {
     }
 
     @GetMapping("/delete")
-    public String deleteTeacher(@RequestParam Long id) {
+    public String deleteTeacher(@RequestParam Integer id) {
         teacherService.deleteTeacher(id);
         return "redirect:/teachers";
     }

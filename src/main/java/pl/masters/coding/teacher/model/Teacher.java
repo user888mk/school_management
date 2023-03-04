@@ -13,7 +13,8 @@ import java.util.List;
 @ToString
 public class Teacher {
 
-    private Long id;
+    
+    private Integer id;
     private String firstName;
     private String lastName;
     private List<Language> languageList;
