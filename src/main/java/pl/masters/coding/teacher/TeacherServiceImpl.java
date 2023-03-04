@@ -8,11 +8,21 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TeacherService {
+public class TeacherServiceImpl  {
 
     private final TeacherRepository teacherRepository;
 
     public List<Teacher> findAll() {
         return teacherRepository.findAll();
+    }
+
+    public void deleteTeacher(Integer id) {
+        List<Teacher> teacherList = teacherRepository.findAll();
+        teacherList.removeIf(teacher -> teacher.getId().equals(id));
+    }
+
+    public void createTeacher(Teacher teacher) {
+        List<Teacher> teacherList = teacherRepository.findAll();
+        teacherList.add(teacher);
     }
 }
