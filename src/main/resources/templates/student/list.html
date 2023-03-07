@@ -12,7 +12,7 @@
     <title>Students!</title>
 </head>
 
-<body>
+<body style="margin: 13px">
 <h1>
     Students list</h1>
 
@@ -40,7 +40,7 @@
 </table>
 
 DUPA
-
+<form th:action="@{students/create}" method="post">
     <h1>Add new Student</h1>
 
     <div class="form-group">
@@ -61,5 +61,6 @@ DUPA
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </body>
 </html>
