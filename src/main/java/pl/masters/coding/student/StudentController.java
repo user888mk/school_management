@@ -17,7 +17,6 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping
-    //model - przekazuje do templatki atrybuty - przyjmuje klucz:wartosc
     public String getStudentList(Model model) {
         List<Student> allStudents = studentService.findAll();
         model.addAttribute("students", allStudents);
@@ -25,16 +24,9 @@ public class StudentController {
         return "student/list";
     }
 
-    //zdanie - i u studenta lista i w lekcji lista
-    //dodac do projektu jezyk student jeden jezyk - nauczyciel wiele
-    //formularz html - zeby tworzyc nowy obiekt - strona na której bedzie chciała uzyskac dane
-
-
     @PostMapping("/create")
-    //elementy z formularza - przekazane do metody (widok) - modelAttribute
     public String createStudent(@ModelAttribute Student student) {
         studentService.createStudent(student);
-        System.out.println(student);
         return "redirect:/students";
     }
 

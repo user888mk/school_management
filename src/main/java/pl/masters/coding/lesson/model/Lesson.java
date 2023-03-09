@@ -4,7 +4,7 @@ import lombok.*;
 import pl.masters.coding.student.model.Student;
 import pl.masters.coding.teacher.model.Teacher;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -19,7 +19,7 @@ public class Lesson {
 
     private Teacher teacher;
 
-    private LocalDate date;
+    private LocalDateTime date;
 
 
 }

@@ -14,10 +14,9 @@ import java.util.List;
 @RequestMapping("/teachers")
 public class TeacherController {
 
-    private final TeacherServiceImpl teacherService;
+    private final TeacherService teacherService;
 
     @GetMapping
-    //model - przekazuje do templatki atrybuty - przyjmuje klucz:wartosc
     public String getTeacherList(Model model) {
         List<Teacher> allTeachers = teacherService.findAll();
         model.addAttribute("teachers", allTeachers);
@@ -25,22 +24,10 @@ public class TeacherController {
         return "teacher/list";
     }
 
-    //zdanie - i u studenta lista i w lekcji lista
-    //dodac do projektu jezyk student jeden jezyk - nauczyciel wiele
-    //formularz html - zeby tworzyc nowy obiekt - strona na której bedzie chciała uzyskac dane
-
-
-//    @GetMapping("/create")
-//    public String getTeacher(Model model) {
-//        model.addAttribute("newTeacher", new Teacher());
-//        return "redirect:/teachers";
-//    }
 
     @PostMapping("/create")
-    //elementy z formularza - przekazane do metody (widok) - modelAttribute
     public String createTeacher(@ModelAttribute Teacher teacher) {
         teacherService.createTeacher(teacher);
-        System.out.println(teacher);
         return "redirect:/teachers";
     }
 

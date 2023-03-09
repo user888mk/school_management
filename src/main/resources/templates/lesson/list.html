@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Lessons!</title>
+</head>
+
+<body style="margin: 13px">
+<h1>
+    Lessons list
+</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">student_id</th>
+        <th scope="col">teacher_id</th>
+        <th scope="col">date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="lesson:${lessons}">
+        <td th:text="${lesson.id}"></td>
+        <td th:text="${lesson.student.id}"></td>
+        <td th:text="${lesson.teacher.id}"></td>
+        <td th:text="${lesson.date}"></td>
+
+        <td><a th:href="@{lessons/delete(id=${lesson.id})}" class="btn btn-warning">DELETE </a>
+        <td><a th:href="@{/edit(id=${lesson.id})}" class="btn btn-light">EDIT </a>
+    </tr>
+    </tbody>
+</table>
+
+<form th:action="@{lessons/create}" method="post">
+    <h1>Add new Lesson</h1>
+
+    <div class="form-group">
+        <label for="studentId" class="form-label">student id</label>
+        <input type="text" class="form-control" name="studentId" id="studentId">
+    </div>
+
+    <div class="form-group">
+        <label for="teacherId" class="form-label">teacher id</label>
+        <input type="text" class="form-control" name="teacherId" id="teacherId">
+    </div>
+
+    <div class="form-group">
+        <label for="datetime-input">Select a date and time:</label>
+        <input type="datetime-local" id="datetime-input" name="datetime">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

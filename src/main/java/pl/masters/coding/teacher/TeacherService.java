@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TeacherServiceImpl  {
+public class TeacherService {
 
     private final TeacherRepository teacherRepository;
 

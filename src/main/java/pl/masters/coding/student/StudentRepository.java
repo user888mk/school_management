@@ -4,7 +4,6 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 import pl.masters.coding.common.Language;
 import pl.masters.coding.student.model.Student;
-import pl.masters.coding.teacher.model.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class StudentRepository {
                 .build();
 
         Student studentTwo = Student.builder()
-                .id(1L)
+                .id(2L)
                 .firstName("Adam")
                 .lastName("Małysz")
                 .language(Language.ARABIC)

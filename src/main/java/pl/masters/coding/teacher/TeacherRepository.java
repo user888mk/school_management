@@ -8,7 +8,7 @@ import pl.masters.coding.teacher.model.Teacher;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository //adnotacja do usunięcia w momencie przejścia na interface z JPA
+@Repository
 public class TeacherRepository {
 
     private static final List<Teacher> dummyTeacherDb = new ArrayList<>();
