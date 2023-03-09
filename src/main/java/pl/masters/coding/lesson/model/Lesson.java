@@ -19,4 +19,5 @@ public class Lesson {
     private Teacher teacher;
     private LocalDateTime date;
     private List<Student> students = new ArrayList<>();
+    private List<Teacher> teachers = new ArrayList<>();
 }

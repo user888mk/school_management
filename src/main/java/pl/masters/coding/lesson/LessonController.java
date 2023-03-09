@@ -24,13 +24,20 @@ public class LessonController {
     @GetMapping
     public String getLessonList(Model model) {
         model.addAttribute("lessons", lessonService.findAll());
-        model.addAttribute("students", studentService.findAll());
+//        model.addAttribute("teachers", teacherService.findAll());
+//        to sie wywala bo lesson nie ma tego atrybutu
         return "lesson/list";
     }
 
+//    @GetMapping("teacher")
+//    public String getTeachers(Model model){
+//        model.addAttribute("teachers", teacherService.findAll());
+//        return "teacher/list";
+//    }
     @PostMapping("/create")
-    public String createLesson(@ModelAttribute Lesson lesson) {
+    public String createLesson(@ModelAttribute Lesson lesson, Model model) {
         lessonService.createLesson(lesson);
+        model.addAttribute("teachers", teacherService.findAll());
         return "redirect:/lessons";
     }
 
