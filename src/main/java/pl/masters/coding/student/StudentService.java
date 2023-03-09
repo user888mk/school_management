@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class StudentService {
-
     private final StudentRepository studentRepository;
 
     public List<Student> findAll() {
@@ -20,7 +19,7 @@ public class StudentService {
 
     public void deleteStudent(Long id) {
         List<Student> studentList = studentRepository.findAll();
-        studentList.removeIf(student -> student.getId().equals(id));
+        studentList.removeIf(student -> student.getId() == id);
     }
 
     public void createStudent(Student student) {

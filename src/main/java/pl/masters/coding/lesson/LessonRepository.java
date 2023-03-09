@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 public class LessonRepository {
-
     private static final List<Lesson> dummyLessonsDb = new ArrayList<>();
 
     public List<Lesson> findAll() {
@@ -21,27 +20,25 @@ public class LessonRepository {
 
     public void save(Lesson lesson) {
         dummyLessonsDb.add(lesson);
-        lesson.setId((long) dummyLessonsDb.size());
+        lesson.setId(dummyLessonsDb.size());
     }
 
     @PostConstruct
     private static void init() {
         Lesson l1 = Lesson.builder()
-                .id(1L)
-                .teacher(Teacher.builder().id(9L).build())
-                .student(Student.builder().id(5L).build())
+                .id(1)
+                .teacher(Teacher.builder().id(9).build())
+                .student(Student.builder().id(5).build())
                 .date(LocalDateTime.of(2023, 3, 11, 12, 0))
                 .build();
         Lesson l2 = Lesson.builder()
-                .id(2L)
-                .teacher(Teacher.builder().id(14L).build())
-                .student(Student.builder().id(7L).build())
+                .id(2)
+                .teacher(Teacher.builder().id(14).build())
+                .student(Student.builder().id(7).build())
                 .date(LocalDateTime.of(2023, 4, 12, 13, 45))
                 .build();
+
         dummyLessonsDb.add(l1);
         dummyLessonsDb.add(l2);
-
     }
-
-
 }

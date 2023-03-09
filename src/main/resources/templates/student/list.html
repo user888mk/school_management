@@ -11,18 +11,16 @@
 
     <title>Students!</title>
 </head>
-
 <body style="margin: 13px">
-<h1>
-    Students list</h1>
+<h1>Students list</h1>
 
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">id</th>
-        <th scope="col">first_name</th>
-        <th scope="col">last_name</th>
-        <th scope="col">language</th>
+        <th scope="col">ID</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Language</th>
     </tr>
     </thead>
 
@@ -43,18 +41,18 @@
     <h1>Add new Student</h1>
 
     <div class="form-group">
-        <label for="firstName" class="form-label">first name</label>
+        <label for="firstName" class="form-label">First name</label>
         <input type="text" class="form-control" name="firstName" id="firstName">
     </div>
 
     <div class="form-group">
-        <label for="lastName" class="form-label">last name</label>
+        <label for="lastName" class="form-label">Last name</label>
         <input type="text" class="form-control" name="lastName" id="lastName">
     </div>
 
     <div class="form-group">
-        <label for="languages" class="form-label">language list</label>
-        <select class="form-control" name="languages" id="languages" multiple>
+        <label for="languages" class="form-label">Language list</label>
+        <select class="form-control" name="language" id="languages">
             <option th:each="language : ${languages}" th:text="${language}" th:value="${language}"></option>
         </select>
     </div>

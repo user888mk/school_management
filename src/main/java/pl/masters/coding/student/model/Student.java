@@ -12,10 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class Student {
-
-    private Long id;
+    private int id;
     private String firstName;
     private String lastName;
     private Language language;
-    private List<Lesson> lessonList;
 }

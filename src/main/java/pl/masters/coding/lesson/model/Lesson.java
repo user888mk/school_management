@@ -5,6 +5,8 @@ import pl.masters.coding.student.model.Student;
 import pl.masters.coding.teacher.model.Teacher;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,14 +14,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lesson {
-
-    private Long id;
-
+    private int id;
     private Student student;
-
     private Teacher teacher;
-
     private LocalDateTime date;
-
-
+    private List<Student> students = new ArrayList<>();
 }

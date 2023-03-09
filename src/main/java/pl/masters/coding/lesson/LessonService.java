@@ -9,7 +9,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class LessonService {
-
     private final LessonRepository lessonRepository;
 
     public List<Lesson> findAll() {
@@ -18,11 +17,10 @@ public class LessonService {
 
     public void deleteLesson(Long id) {
         List<Lesson> lessonList = lessonRepository.findAll();
-        lessonList.removeIf(lesson -> lesson.getId().equals(id));
+        lessonList.removeIf(lesson -> lesson.getId() == id);
     }
 
     public void createLesson(Lesson lesson) {
         lessonRepository.save(lesson);
     }
-
 }

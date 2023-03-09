@@ -13,21 +13,22 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/teachers")
 public class TeacherController {
-
     private final TeacherService teacherService;
 
     @GetMapping
     public String getTeacherList(Model model) {
-        List<Teacher> allTeachers = teacherService.findAll();
-        model.addAttribute("teachers", allTeachers);
+        model.addAttribute("teachers", teacherService.findAll());
         model.addAttribute("languages", Language.values());
         return "teacher/list";
     }
 
-
     @PostMapping("/create")
     public String createTeacher(@ModelAttribute Teacher teacher) {
-        teacherService.createTeacher(teacher);
+        if (teacher.getFirstName().isEmpty() || teacher.getLastName().isEmpty() || teacher.getLanguages().isEmpty()) {
+            throw new IllegalArgumentException("First name or Last name or Languages cannot be empty!");
+        } else {
+            teacherService.createTeacher(teacher);
+        }
         return "redirect:/teachers";
     }
 
@@ -36,6 +37,4 @@ public class TeacherController {
         teacherService.deleteTeacher(id);
         return "redirect:/teachers";
     }
-
-
 }

@@ -9,7 +9,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class TeacherService {
-
     private final TeacherRepository teacherRepository;
 
     public List<Teacher> findAll() {
@@ -18,7 +17,7 @@ public class TeacherService {
 
     public void deleteTeacher(Long id) {
         List<Teacher> teacherList = teacherRepository.findAll();
-        teacherList.removeIf(teacher -> teacher.getId().equals(id));
+        teacherList.removeIf(teacher -> teacher.getId() == id);
     }
 
     public void createTeacher(Teacher teacher) {
