@@ -37,7 +37,7 @@ public class LessonController {
     @PostMapping("/create")
     public String createLesson(@ModelAttribute Lesson lesson, Model model) {
         lessonService.createLesson(lesson);
-        model.addAttribute("teachers", teacherService.findAll());
+//        model.addAttribute("teachers", teacherService.findAll());
         return "redirect:/lessons";
     }
 
