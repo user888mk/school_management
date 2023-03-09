@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/student")
 public class StudentController {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     @GetMapping
     public String getStudentList(){

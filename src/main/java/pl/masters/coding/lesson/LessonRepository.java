@@ -31,7 +31,6 @@ public class LessonRepository {
     @PostConstruct
     public static void init() {
 
-
         Lesson firstLesson = Lesson.builder()
                 .student(Student.builder()
                         .firstName("Annia")
@@ -43,6 +42,7 @@ public class LessonRepository {
                         .lastName("Malysz")
                         .languages(List.of(Language.ARABIC, Language.CHINESE))
                         .build())
+                .id(1L)
                 .date(LocalDate.now())
                 .build();
 
@@ -57,6 +57,7 @@ public class LessonRepository {
                         .lastName("Żyła")
                         .languages(List.of(Language.ENGLISH, Language.JAPANESE, Language.SPANISH))
                         .build())
+                .id(2L)
                 .date(LocalDate.now())
                 .build();
 

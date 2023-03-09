@@ -54,4 +54,11 @@ public class TeacherController {
     //mySQl workbench
     //
 
+    @GetMapping("/edit")
+    public String editTeacher(@RequestParam Teacher teacher) {
+        teacherService.update(teacher);
+        return "redirect:/teachers";
+    }
+
+
 }

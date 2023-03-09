@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TeacherServiceImpl  {
+public class TeacherServiceImpl {
 
     private final TeacherRepository teacherRepository;
 
@@ -23,5 +23,12 @@ public class TeacherServiceImpl  {
 
     public void createTeacher(Teacher teacher) {
         teacherRepository.save(teacher);
+    }
+
+    public void update(Teacher teacher) {
+        List<Teacher> teacherList = teacherRepository.findAll();
+        Teacher oldTeacher = teacherList.stream().filter(t -> t.getId().equals(teacher.getId())).findFirst().get();
+        int index = teacherList.indexOf(oldTeacher);
+        teacherList.set(index, oldTeacher);
     }
 }

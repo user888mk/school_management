@@ -33,7 +33,7 @@
         <td th:text="${teacher.languages}"></td>
 
         <td><a th:href="@{teachers/delete(id=${teacher.id})}" class="btn btn-warning">DELETE </a>
-        <td><a th:href="@{/edit(id=${teacher.id})}" class="btn btn-light">EDIT </a>
+        <td><a th:href="@{teachers/edit(id=${teacher.id})}" class="btn btn-light">EDIT </a>
     </tr>
     </tbody>
 </table>

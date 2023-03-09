@@ -16,8 +16,14 @@ public class LessonServiceImpl {
         return lessonRepository.findAll();
     }
 
+    public void deleteLesson(Long id) {
+        List<Lesson> lessonList = lessonRepository.findAll();
+        lessonList.removeIf(lesson -> lesson.getId().equals(id));
+    }
+
     public void createLesson(Lesson lesson) {
         lessonRepository.save(lesson);
+
     }
 
 }
