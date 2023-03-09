@@ -18,11 +18,6 @@ public class LessonRepository {
         return dummyLessonsDb;
     }
 
-    public void save(Lesson lesson) {
-        dummyLessonsDb.add(lesson);
-        lesson.setId(dummyLessonsDb.size());
-    }
-
     @PostConstruct
     private static void init() {
         Lesson l1 = Lesson.builder()

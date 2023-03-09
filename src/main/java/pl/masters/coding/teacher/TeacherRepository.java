@@ -16,11 +16,6 @@ public class TeacherRepository {
         return dummyTeacherDb;
     }
 
-    public void save(Teacher teacher) {
-        dummyTeacherDb.add(teacher);
-        teacher.setId(dummyTeacherDb.size());
-    }
-
     @PostConstruct
     private static void init() {
         Teacher teacher1 = Teacher.builder()

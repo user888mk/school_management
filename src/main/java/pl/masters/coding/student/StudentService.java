@@ -18,11 +18,11 @@ public class StudentService {
     }
 
     public void deleteStudent(Long id) {
-        List<Student> studentList = studentRepository.findAll();
-        studentList.removeIf(student -> student.getId() == id);
+        findAll().removeIf(student -> student.getId() == id);
     }
 
     public void createStudent(Student student) {
-        studentRepository.save(student);
+        findAll().add(student);
+        student.setId(findAll().size());
     }
 }

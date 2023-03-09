@@ -20,18 +20,14 @@ public class StudentController {
     public String getStudentList(Model model) {
         model.addAttribute("students", studentService.findAll());
         model.addAttribute("languages", Language.values());
-//        model.getAttribute("teachers");
+        // tu by pasowalo podac liste nauczycieli i w html w opitonie ja zaciągnąć
         return "student/list";
     }
     @PostMapping("/create")
     public String createStudent(@ModelAttribute Student student) {
-//        for (Student studentFromDb : studentService.findAll()) {
-//            if (studentFromDb.getFirstName() == null){
-//                System.out.println("niee");
-//            }
-//        }
+
         if (student.getFirstName().isEmpty() || student.getLastName().isEmpty()){
-            throw new RuntimeException("First name or last name cannot be empty!");
+            throw new IllegalArgumentException("First name or last name cannot be empty!");
         } else {
             studentService.createStudent(student);
         }

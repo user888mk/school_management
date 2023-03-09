@@ -16,11 +16,11 @@ public class TeacherService {
     }
 
     public void deleteTeacher(Long id) {
-        List<Teacher> teacherList = teacherRepository.findAll();
-        teacherList.removeIf(teacher -> teacher.getId() == id);
+        findAll().removeIf(teacher -> teacher.getId() == id);
     }
 
     public void createTeacher(Teacher teacher) {
-        teacherRepository.save(teacher);
+        findAll().add(teacher);
+        teacher.setId(findAll().size());
     }
 }

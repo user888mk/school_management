@@ -16,11 +16,11 @@ public class LessonService {
     }
 
     public void deleteLesson(Long id) {
-        List<Lesson> lessonList = lessonRepository.findAll();
-        lessonList.removeIf(lesson -> lesson.getId() == id);
+        findAll().removeIf(lesson -> lesson.getId() == id);
     }
 
     public void createLesson(Lesson lesson) {
-        lessonRepository.save(lesson);
+        findAll().add(lesson);
+        lesson.setId(findAll().size());
     }
 }
