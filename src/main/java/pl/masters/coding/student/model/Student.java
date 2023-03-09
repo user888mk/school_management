@@ -13,8 +13,6 @@ import java.util.List;
 @Builder
 public class Student {
 
-
-   
     private Long id;
     private String firstName;
     private String lastName;
