@@ -15,4 +15,13 @@ public class StudentService {
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
+
+    public void deleteStudent(Long id) {
+        List<Student> studentList = studentRepository.findAll();
+        studentList.removeIf(student -> student.getId().equals(id));
+    }
+
+    public void createStudent(Student student) {
+        studentRepository.save(student);
+    }
 }

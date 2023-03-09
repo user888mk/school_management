@@ -17,6 +17,11 @@ public class StudentRepository {
         return dummyStudentDb;
     }
 
+    public void save(Student student) {
+        dummyStudentDb.add(student);
+        student.setId((long) dummyStudentDb.size());
+    }
+
     @PostConstruct
     private static void init() {
         Student studentOne = Student.builder()

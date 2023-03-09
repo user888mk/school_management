@@ -21,5 +21,4 @@ public class Lesson {
     private Teacher teacher;
 
     private LocalDate date;
-
 }

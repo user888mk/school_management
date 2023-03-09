@@ -25,17 +25,6 @@ public class TeacherController {
         return "teacher/list";
     }
 
-    //zdanie - i u studenta lista i w lekcji lista
-    //dodac do projektu jezyk student jeden jezyk - nauczyciel wiele
-    //formularz html - zeby tworzyc nowy obiekt - strona na której bedzie chciała uzyskac dane
-
-
-//    @GetMapping("/create")
-//    public String getTeacher(Model model) {
-//        model.addAttribute("newTeacher", new Teacher());
-//        return "redirect:/teachers";
-//    }
-
     @PostMapping("/create")
     //elementy z formularza - przekazane do metody (widok) - modelAttribute
     public String createTeacher(@ModelAttribute Teacher teacher) {
