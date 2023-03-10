@@ -26,11 +26,11 @@ public class StudentController {
     }
     @PostMapping("/create")
     public String createStudent(@ModelAttribute Student student) {
-//        for (Teacher teacher : teacherService.findAll()) {
-//            if (!teacher.getLanguages().contains(student.getLanguage())){
-//                throw new IllegalArgumentException("Teacher does not teach this language!");
-//            }
-//        }
+        for (Teacher teacher : teacherService.findAll()) {
+            if (!teacher.getLanguages().contains(student.getLanguage())){
+                throw new IllegalArgumentException("Teacher does not teach this language!");
+            }
+        }
         if (student.getFirstName().isEmpty() || student.getLastName().isEmpty()){
             throw new IllegalArgumentException("First name or last name cannot be empty!");
         } else {
