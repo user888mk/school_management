@@ -11,8 +11,10 @@ import pl.masters.coding.student.StudentService;
 import pl.masters.coding.student.model.Student;
 import pl.masters.coding.teacher.TeacherService;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,8 +33,13 @@ public class LessonController {
     }
 
     @PostMapping("/create")
-    public String createLesson(@ModelAttribute Lesson lesson, Model model) {
-        if (lesson.getDate().isAfter(LocalDateTime.now())){
+    public String createLesson(@ModelAttribute Lesson lesson, @RequestParam("datetime") String date) {
+//        Pattern pattern = Pattern.compile("")
+//
+//        LocalDateTime lessonDate = LocalDateTime.parse(date);
+//        lesson.setDate(lessonDate);
+
+        if (lesson.getDate().isBefore(LocalDateTime.now())){
             throw new IllegalArgumentException("Cannot create lesson in the past!");
         } else {
             lessonService.createLesson(lesson);

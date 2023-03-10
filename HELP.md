@@ -15,7 +15,7 @@
 - wylistowanie kursantów GIT
 - wylistowanie lekcji GIT
 - dodawanie nauczyciela (dodając nauczyciela, chcemy mieć możliwość wybrania kilku języków jednocześnie) - guzik na liście nauczycieli GIT
-- dodawanie kursanta (wybór nauczyciela z listy dostępnych - nie pozwalany na przypisanie nauczyciela, który nie uczy danego języka) - guzik na liście kursantów
+- dodawanie kursanta (wybór nauczyciela z listy dostępnych - nie pozwalany na przypisanie nauczyciela, który nie uczy danego języka) - guzik na liście kursantów GIT
 - dodawanie lekcji (nie pozwalamy na zaplanowanie lekcji w przeszłości && nie pozwalamy na zaplanowanie lekcji w terminie, który będzie się pokrywał z inna lekcją danego nauczyciela) - guzik na liście lekcji oraz guzik przy kursancie
 - usuwanie nauczyciela (soft delete) - guzik na liście nauczycieli GIT
 - usuwanie kursanta (soft delete) - guzik na liście kursantów  GIT
