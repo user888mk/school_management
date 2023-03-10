@@ -17,7 +17,7 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public void deleteStudent(Long id) {
+    public void deleteStudent(int id) {
         findAll().removeIf(student -> student.getId() == id);
     }
 

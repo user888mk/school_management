@@ -15,12 +15,21 @@ public class LessonService {
         return lessonRepository.findAll();
     }
 
-    public void deleteLesson(Long id) {
+    public void deleteLesson(int id) {
         findAll().removeIf(lesson -> lesson.getId() == id);
     }
 
     public void createLesson(Lesson lesson) {
         findAll().add(lesson);
         lesson.setId(findAll().size());
+    }
+
+    public Lesson findLessonById(int id){
+        for (Lesson lesson : findAll()) {
+            if (lesson.getId() == id){
+                return lesson;
+            }
+        }
+        return null;
     }
 }

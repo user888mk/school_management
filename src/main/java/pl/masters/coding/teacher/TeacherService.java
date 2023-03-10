@@ -15,7 +15,7 @@ public class TeacherService {
         return teacherRepository.findAll();
     }
 
-    public void deleteTeacher(Long id) {
+    public void deleteTeacher(int id) {
         findAll().removeIf(teacher -> teacher.getId() == id);
     }
 

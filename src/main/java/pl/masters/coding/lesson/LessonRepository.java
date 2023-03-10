@@ -32,8 +32,15 @@ public class LessonRepository {
                 .student(Student.builder().id(7).build())
                 .date(LocalDateTime.of(2023, 4, 12, 13, 45))
                 .build();
+        Lesson l3 = Lesson.builder()
+                .id(3)
+                .teacher(Teacher.builder().id(2).build())
+                .student(Student.builder().id(2).build())
+                .date(LocalDateTime.of(2023, 3, 05, 13, 45))
+                .build();
 
         dummyLessonsDb.add(l1);
         dummyLessonsDb.add(l2);
+        dummyLessonsDb.add(l3);
     }
 }

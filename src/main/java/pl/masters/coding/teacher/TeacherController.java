@@ -33,7 +33,7 @@ public class TeacherController {
     }
 
     @GetMapping("/delete")
-    public String deleteTeacher(@RequestParam Long id) {
+    public String deleteTeacher(@RequestParam int id) {
         teacherService.deleteTeacher(id);
         return "redirect:/teachers";
     }

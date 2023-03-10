@@ -11,6 +11,7 @@ import pl.masters.coding.student.StudentService;
 import pl.masters.coding.student.model.Student;
 import pl.masters.coding.teacher.TeacherService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -29,7 +30,7 @@ public class LessonController {
         return "lesson/list";
     }
 
-//    @GetMapping("teacher")
+    //    @GetMapping("teacher")
 //    public String getTeachers(Model model){
 //        model.addAttribute("teachers", teacherService.findAll());
 //        return "teacher/list";
@@ -42,8 +43,13 @@ public class LessonController {
     }
 
     @GetMapping("/delete")
-    public String deleteLesson(@RequestParam Long id) {
-        lessonService.deleteLesson(id);
+    public String deleteLesson(@RequestParam int id) {
+        Lesson lesson = lessonService.findLessonById(id);
+        if (lesson.getDate().isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Cannot delete lesson which already started!");
+        } else {
+            lessonService.deleteLesson(id);
+        }
         return "redirect:/lessons";
     }
 }

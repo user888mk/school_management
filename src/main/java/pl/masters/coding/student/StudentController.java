@@ -34,7 +34,7 @@ public class StudentController {
         return "redirect:/students";
     }
     @GetMapping("/delete")
-    public String deleteStudent(@RequestParam Long id) {
+    public String deleteStudent(@RequestParam int id) {
         studentService.deleteStudent(id);
         return "redirect:/students";
     }
