@@ -25,16 +25,11 @@ public class LessonController {
     @GetMapping
     public String getLessonList(Model model) {
         model.addAttribute("lessons", lessonService.findAll());
-//        model.addAttribute("teachers", teacherService.findAll());
-//        to sie wywala bo lesson nie ma tego atrybutu
+        model.addAttribute("teachers", teacherService.findAll());
+        model.addAttribute("students", studentService.findAll());
         return "lesson/list";
     }
 
-    //    @GetMapping("teacher")
-//    public String getTeachers(Model model){
-//        model.addAttribute("teachers", teacherService.findAll());
-//        return "teacher/list";
-//    }
     @PostMapping("/create")
     public String createLesson(@ModelAttribute Lesson lesson, Model model) {
         if (lesson.getDate().isAfter(LocalDateTime.now())){
@@ -42,8 +37,6 @@ public class LessonController {
         } else {
             lessonService.createLesson(lesson);
         }
-
-//        model.addAttribute("teachers", teacherService.findAll());
         return "redirect:/lessons";
     }
 
