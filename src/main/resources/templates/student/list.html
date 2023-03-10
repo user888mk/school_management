@@ -59,7 +59,7 @@
     <div class="form-group">
         <label for="teacherId" class="form-label">Teachers</label>
         <select name="teacherId" id="teacherId" class="form-control">
-            <option value="">Select a teacher</option>
+            <option value="" disabled selected hidden>Select a teacher</option>
             <option th:each="teacher : ${teachers}"
                     th:value="${teacher.getId()}"
                     th:text="${teacher.getFirstName() + ' '

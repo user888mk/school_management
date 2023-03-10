@@ -41,7 +41,7 @@
     <div class="form-group">
         <label for="studentId" class="form-label">Students</label>
         <select class="form-control" name="studentId" id="studentId">
-            <option value="">Select a student</option>
+            <option value="" disabled selected hidden>Select a student</option>
             <option th:each="student : ${students}"
                     th:value="${student.getId()}"
                     th:text="${student.getFirstName() + ' '
@@ -53,7 +53,7 @@
     <div class="form-group">
         <label for="teacherId" class="form-label">Teachers</label>
         <select name="teacherId" id="teacherId" class="form-control">
-            <option value="">Select a teacher</option>
+            <option value="" disabled selected hidden>Select a teacher</option>
             <option th:each="teacher : ${teachers}"
                     th:value="${teacher.getId()}"
                     th:text="${teacher.getFirstName() + ' '
