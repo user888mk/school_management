@@ -37,7 +37,12 @@ public class LessonController {
 //    }
     @PostMapping("/create")
     public String createLesson(@ModelAttribute Lesson lesson, Model model) {
-        lessonService.createLesson(lesson);
+        if (lesson.getDate().isAfter(LocalDateTime.now())){
+            throw new IllegalArgumentException("Cannot create lesson in the past!");
+        } else {
+            lessonService.createLesson(lesson);
+        }
+
 //        model.addAttribute("teachers", teacherService.findAll());
         return "redirect:/lessons";
     }
