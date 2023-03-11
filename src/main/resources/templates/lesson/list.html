@@ -41,19 +41,34 @@
     <h1>Add new Lesson</h1>
 
     <div class="form-group">
-        <label for="student" class="form-label">student</label>
-        <input type="text" class="form-control" name="student" id="student">
+        <label for="studentId" class="form-label">Students</label>
+        <select class="form-control" name="studentId" id="studentId">
+            <option value="" disabled selected hidden>Select a student</option>
+            <option th:each="student : ${students}"
+                    th:value="${student.getId()}"
+                    th:text="${student.getFirstName() + ' '
+                    + student.getLastName() + ' '
+                    + student.getLanguage()}"></option>
+        </select>
     </div>
 
     <div class="form-group">
-        <label for="teacher" class="form-label">teacher</label>
-        <input type="text" class="form-control" name="teacher" id="teacher">
+        <label for="teacherId" class="form-label">Teachers</label>
+        <select name="teacherId" id="teacherId" class="form-control">
+            <option value="" disabled selected hidden>Select a teacher</option>
+            <option th:each="teacher : ${teachers}"
+                    th:value="${teacher.getId()}"
+                    th:text="${teacher.getFirstName() + ' '
+                    + teacher.getLastName() + ' '
+                    + teacher.getLanguages()}"></option>
+        </select>
     </div>
 
     <div class="form-group">
-        <label for="date" class="form-label">date</label>
-        <input type="text" class="form-control" name="date" id="date">
+        <label for="datetime-input">Select a date and time:</label>
+        <input type="datetime-local" id="datetime-input" name="datetime">
     </div>
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

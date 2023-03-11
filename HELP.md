@@ -11,14 +11,14 @@
 - Lekcja (id, Kursant, Nauczyciel, termin)
 
 ### funkcjonalności
-- wylistowanie nauczycieli
-- wylistowanie kursantów
-- wylistowanie lekcji
-- dodawanie nauczyciela (dodając nauczyciela, chcemy mieć możliwość wybrania kilku języków jednocześnie) - guzik na liście nauczycieli
-- dodawanie kursanta (wybór nauczyciela z listy dostępnych - nie pozwalany na przypisanie nauczyciela, który nie uczy danego języka) - guzik na liście kursantów
+- wylistowanie nauczycieli GIT
+- wylistowanie kursantów GIT
+- wylistowanie lekcji GIT
+- dodawanie nauczyciela (dodając nauczyciela, chcemy mieć możliwość wybrania kilku języków jednocześnie) - guzik na liście nauczycieli GIT
+- dodawanie kursanta (wybór nauczyciela z listy dostępnych - nie pozwalany na przypisanie nauczyciela, który nie uczy danego języka) - guzik na liście kursantów GIT
 - dodawanie lekcji (nie pozwalamy na zaplanowanie lekcji w przeszłości && nie pozwalamy na zaplanowanie lekcji w terminie, który będzie się pokrywał z inna lekcją danego nauczyciela) - guzik na liście lekcji oraz guzik przy kursancie
-- usuwanie nauczyciela (soft delete) - guzik na liście nauczycieli
-- usuwanie kursanta (soft delete) - guzik na liście kursantów
-- usuwanie lekcji (nie usuwamy lekcji, która już się zaczęła) - guzik na liście lekcji
+- usuwanie nauczyciela (soft delete) - guzik na liście nauczycieli GIT
+- usuwanie kursanta (soft delete) - guzik na liście kursantów  GIT
+- usuwanie lekcji (nie usuwamy lekcji, która już się zaczęła) - guzik na liście lekcji GIT
 - zmiana terminu lekcji (nie pozwalamy na przypisanie terminu, który jest niedostępny dla nauczyciela, ani nie pozwalamy na zaplanowanie jej w przeszłości) - guzik na liście lekcji
 - zmiana nauczyciela dla kursanta (walidujemy/sprawdzamy język) - guzik na liście kursantów

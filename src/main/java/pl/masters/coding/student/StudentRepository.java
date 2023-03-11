@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public class StudentRepository {
-
     private static final List<Student> dummyStudentDb = new ArrayList<>();
 
     public List<Student> findAll() {
@@ -25,14 +24,14 @@ public class StudentRepository {
     @PostConstruct
     private static void init() {
         Student studentOne = Student.builder()
-                .id(1L)
+                .id(1)
                 .firstName("Piotr")
                 .lastName("Żyła")
                 .language(Language.ITALIAN)
                 .build();
 
         Student studentTwo = Student.builder()
-                .id(1L)
+                .id(2)
                 .firstName("Adam")
                 .lastName("Małysz")
                 .language(Language.ARABIC)
@@ -40,6 +39,5 @@ public class StudentRepository {
 
         dummyStudentDb.add(studentOne);
         dummyStudentDb.add(studentTwo);
-
     }
 }

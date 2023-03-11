@@ -6,34 +6,42 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.masters.coding.common.Language;
 import pl.masters.coding.student.model.Student;
-
-import java.util.List;
+import pl.masters.coding.teacher.TeacherService;
+import pl.masters.coding.teacher.model.Teacher;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/students")
 public class StudentController {
-
     private final StudentService studentService;
+    private final TeacherService teacherService;
 
     @GetMapping
     public String getStudentList(Model model) {
-        List<Student> allStudents = studentService.findAll();
-        model.addAttribute("students", allStudents);
+        model.addAttribute("students", studentService.findAll());
         model.addAttribute("languages", Language.values());
+        model.addAttribute("teachers", teacherService.findAll());
         return "student/list";
     }
 
     @PostMapping("/create")
-    public String createStudent(@ModelAttribute Student student) {
-        studentService.createStudent(student);
-        System.out.println(student);
+    public String createStudent(@ModelAttribute Student student, @RequestParam("teacherId") int teacherId, @RequestParam("language") Language language) {
+        //TODO: do ogarnięcia przeniesienie walidacji do serwisu lub zrobienie walidacji adnotacjami na poziomie klasy (spring-boot-starter-validation)
+        Teacher teacher = teacherService.findById(teacherId);
+        if (teacher.getLanguages().contains(language)) {
+            student.setTeacher(teacher);
+            studentService.createStudent(student);
+            //teacher.getStudents().add(student);
+        } else {
+            throw new IllegalArgumentException("This teacher doesn't teach this language!");
+        }
         return "redirect:/students";
     }
 
     @GetMapping("/delete")
-    public String deleteStudent(@RequestParam Long id) {
+    public String deleteStudent(@RequestParam int id) {
         studentService.deleteStudent(id);
         return "redirect:/students";
     }
+
 }

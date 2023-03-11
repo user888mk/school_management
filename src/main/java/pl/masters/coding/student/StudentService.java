@@ -9,19 +9,25 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class StudentService {
-
     private final StudentRepository studentRepository;
 
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
 
-    public void deleteStudent(Long id) {
-        List<Student> studentList = studentRepository.findAll();
-        studentList.removeIf(student -> student.getId().equals(id));
+    public void deleteStudent(int id) {
+        findAll().removeIf(student -> student.getId() == id);
     }
 
     public void createStudent(Student student) {
-        studentRepository.save(student);
+        findAll().add(student);
+        student.setId(findAll().size());
+    }
+
+    public Student findById(int id) {
+        return findAll().stream()
+                .filter(student -> student.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 }

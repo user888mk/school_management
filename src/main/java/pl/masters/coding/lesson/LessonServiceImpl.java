@@ -8,22 +8,28 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class LessonServiceImpl {
-
+public class LessonService {
     private final LessonRepository lessonRepository;
 
     public List<Lesson> findAll() {
         return lessonRepository.findAll();
     }
 
-    public void deleteLesson(Long id) {
-        List<Lesson> lessonList = lessonRepository.findAll();
-        lessonList.removeIf(lesson -> lesson.getId().equals(id));
+    public void deleteLesson(int id) {
+        findAll().removeIf(lesson -> lesson.getId() == id);
     }
 
     public void createLesson(Lesson lesson) {
-        lessonRepository.save(lesson);
-
+        findAll().add(lesson);
+        lesson.setId(findAll().size());
     }
 
+    public Lesson findLessonById(int id){
+        for (Lesson lesson : findAll()) {
+            if (lesson.getId() == id){
+                return lesson;
+            }
+        }
+        return null;
+    }
 }
