@@ -28,13 +28,13 @@ public class StudentController {
     public String createStudent(@ModelAttribute Student student, @RequestParam("teacherId") int teacherId, @RequestParam("language") Language language) {
         //TODO: do ogarnięcia przeniesienie walidacji do serwisu lub zrobienie walidacji adnotacjami na poziomie klasy (spring-boot-starter-validation)
         Teacher teacher = teacherService.findById(teacherId);
-        if (teacher.getLanguages().contains(language)) {
-            student.setTeacher(teacher);
-            studentService.createStudent(student);
-            //teacher.getStudents().add(student);
-        } else {
-            throw new IllegalArgumentException("This teacher doesn't teach this language!");
-        }
+//        if (teacher.getLanguages().contains(language)) {
+//            student.setTeacher(teacher);
+//            studentService.createStudent(student);
+//            teacher.getStudents().add(student);
+//        } else {
+//            throw new IllegalArgumentException("This teacher doesn't teach this language!");
+//        }
         return "redirect:/students";
     }
 

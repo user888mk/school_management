@@ -1,10 +1,10 @@
 package pl.masters.coding.teacher.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
-import pl.masters.coding.common.Language;
-import pl.masters.coding.student.model.Student;
-
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,11 +12,15 @@ import java.util.List;
 @Setter
 @Builder
 @ToString
+@Entity
 public class Teacher {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
-    private List<Language> languages;
+//    private List<Language> languages;
 
-    private List<Student> students;
+//    private List<Student> students;
 }

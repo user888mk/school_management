@@ -35,11 +35,11 @@ public class LessonController {
     @PostMapping("/create")
     public String createLesson(@ModelAttribute Lesson lesson, @RequestParam("datetime") String date) {
         //TODO: do ogarnięcia przeniesienie walidacji do serwisu lub zrobienie walidacji adnotacjami na poziomie klasy (spring-boot-starter-validation)
-        if (lesson.getDate().isBefore(LocalDateTime.now())){
-            throw new IllegalArgumentException("Cannot create lesson in the past!");
-        } else {
-            lessonService.createLesson(lesson);
-        }
+//        if (lesson.getDate().isBefore(LocalDateTime.now())){
+//            throw new IllegalArgumentException("Cannot create lesson in the past!");
+//        } else {
+//            lessonService.createLesson(lesson);
+//        }
         return "redirect:/lessons";
     }
 
@@ -47,11 +47,11 @@ public class LessonController {
     public String deleteLesson(@RequestParam int id) {
         Lesson lesson = lessonService.findLessonById(id);
         // TODO: 3/11/2023 przeniesienie logiki walidującej na poziom serwisu
-        if (lesson.getDate().isBefore(LocalDateTime.now())) {
-            throw new IllegalArgumentException("Cannot delete lesson which already started!");
-        } else {
-            lessonService.deleteLesson(id);
-        }
+//        if (lesson.getDate().isBefore(LocalDateTime.now())) {
+//            throw new IllegalArgumentException("Cannot delete lesson which already started!");
+//        } else {
+//            lessonService.deleteLesson(id);
+//        }
         return "redirect:/lessons";
     }
 }

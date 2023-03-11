@@ -14,11 +14,11 @@ import java.time.LocalDate;
 @ToString
 public class Lesson {
 
-    private Long id;
+    private int id;
 
-    private Student student;
+//    private Student student;
 
-    private Teacher teacher;
+//    private Teacher teacher;
 
     private LocalDate date;
 }

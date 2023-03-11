@@ -18,7 +18,7 @@ public class StudentRepository {
 
     public void save(Student student) {
         dummyStudentDb.add(student);
-        student.setId((long) dummyStudentDb.size());
+//        student.setId((long) dummyStudentDb.size());
     }
 
     @PostConstruct

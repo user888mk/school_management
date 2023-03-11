@@ -16,5 +16,5 @@ public class Student {
     private String lastName;
     private Language language;
 
-    private Teacher teacher;
+//    private Teacher teacher;
 }

@@ -18,29 +18,29 @@ public class LessonRepository {
         return dummyLessonsDb;
     }
 
-    @PostConstruct
-    private static void init() {
-        Lesson l1 = Lesson.builder()
-                .id(1)
-                .teacher(Teacher.builder().id(9).build())
-                .student(Student.builder().id(5).build())
-                .date(LocalDateTime.of(2023, 3, 11, 12, 0))
-                .build();
-        Lesson l2 = Lesson.builder()
-                .id(2)
-                .teacher(Teacher.builder().id(14).build())
-                .student(Student.builder().id(7).build())
-                .date(LocalDateTime.of(2023, 4, 12, 13, 45))
-                .build();
-        Lesson l3 = Lesson.builder()
-                .id(3)
-                .teacher(Teacher.builder().id(2).build())
-                .student(Student.builder().id(2).build())
-                .date(LocalDateTime.of(2023, 3, 05, 13, 45))
-                .build();
-
-        dummyLessonsDb.add(l1);
-        dummyLessonsDb.add(l2);
-        dummyLessonsDb.add(l3);
-    }
+//    @PostConstruct
+//    private static void init() {
+//        Lesson l1 = Lesson.builder()
+//                .id(1)
+////                .teacher(Teacher.builder().id(9).build())
+//                .student(Student.builder().id(5).build())
+//                .date(LocalDateTime.of(2023, 3, 11, 12, 0))
+//                .build();
+//        Lesson l2 = Lesson.builder()
+//                .id(2)
+//                .teacher(Teacher.builder().id(14).build())
+//                .student(Student.builder().id(7).build())
+//                .date(LocalDateTime.of(2023, 4, 12, 13, 45))
+//                .build();
+//        Lesson l3 = Lesson.builder()
+//                .id(3)
+//                .teacher(Teacher.builder().id(2).build())
+//                .student(Student.builder().id(2).build())
+//                .date(LocalDateTime.of(2023, 3, 05, 13, 45))
+//                .build();
+//
+//        dummyLessonsDb.add(l1);
+//        dummyLessonsDb.add(l2);
+//        dummyLessonsDb.add(l3);
+//    }
 }

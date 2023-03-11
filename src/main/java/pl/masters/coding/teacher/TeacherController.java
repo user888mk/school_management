@@ -23,11 +23,11 @@ public class TeacherController {
     @PostMapping("/create")
     public String createTeacher(@ModelAttribute Teacher teacher) {
         //TODO: do ogarnięcia przeniesienie walidacji do serwisu lub zrobienie walidacji adnotacjami na poziomie klasy (spring-boot-starter-validation)
-        if (teacher.getFirstName().isEmpty() || teacher.getLastName().isEmpty() || teacher.getLanguages().isEmpty()) {
-            throw new IllegalArgumentException("First name or Last name or Languages cannot be empty!");
-        } else {
+//        if (teacher.getFirstName().isEmpty() || teacher.getLastName().isEmpty() || teacher.getLanguages().isEmpty()) {
+//            throw new IllegalArgumentException("First name or Last name or Languages cannot be empty!");
+//        } else {
             teacherService.createTeacher(teacher);
-        }
+//        }
         return "redirect:/teachers";
     }
 

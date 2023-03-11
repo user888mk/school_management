@@ -1,9 +1,11 @@
 package pl.masters.coding.teacher;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.masters.coding.teacher.model.Teacher;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @Service
@@ -16,19 +18,17 @@ public class TeacherService {
     }
 
     public void deleteTeacher(int id) {
-        findAll().removeIf(teacher -> teacher.getId() == id);
+        teacherRepository.deleteById(id);
     }
 
     public void createTeacher(Teacher teacher) {
-        findAll().add(teacher);
-        teacher.setId(findAll().size());
+        teacherRepository.save(teacher);
     }
 
     public Teacher findById(int id) {
-        return findAll().stream()
-                .filter(teacher -> teacher.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return teacherRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(MessageFormat
+                        .format("Teacher with id={0} has not been found", id)));
     }
 
 }
