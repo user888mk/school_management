@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:marginwidth="10">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Lessons!</title>
 </head>
-<body style="margin: 13px">
-<h1>Lessons list</h1>
+
+<body style="margin: 13px; padding: 3px">
+<h1>
+    Lessons list</h1>
 
 <table class="table">
     <thead>
     <tr>
         <th scope="col">id</th>
-        <th scope="col">student_id</th>
-        <th scope="col">teacher_id</th>
+        <th scope="col">student</th>
+        <th scope="col">teacher</th>
         <th scope="col">date</th>
     </tr>
     </thead>
@@ -25,12 +27,12 @@
     <tbody>
     <tr th:each="lesson:${lessons}">
         <td th:text="${lesson.id}"></td>
-        <td th:text="${lesson.student.id}"></td>
-        <td th:text="${lesson.teacher.id}"></td>
+        <td th:text="${lesson.student}"></td>
+        <td th:text="${lesson.teacher}"></td>
         <td th:text="${lesson.date}"></td>
 
         <td><a th:href="@{lessons/delete(id=${lesson.id})}" class="btn btn-warning">DELETE </a>
-        <td><a th:href="@{/edit(id=${lesson.id})}" class="btn btn-light">EDIT </a>
+        <td><a th:href="@{lessons/edit(id=${lesson.id})}" class="btn btn-light">EDIT </a>
     </tr>
     </tbody>
 </table>

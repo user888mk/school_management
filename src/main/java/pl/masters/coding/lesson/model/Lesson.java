@@ -4,18 +4,21 @@ import lombok.*;
 import pl.masters.coding.student.model.Student;
 import pl.masters.coding.teacher.model.Teacher;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Lesson {
-    private int id;
+
+    private Long id;
+
     private Student student;
+
     private Teacher teacher;
-    private LocalDateTime date;
+
+    private LocalDate date;
 }

@@ -10,6 +10,7 @@ import pl.masters.coding.teacher.model.Teacher;
 @AllArgsConstructor
 @Builder
 public class Student {
+
     private int id;
     private String firstName;
     private String lastName;
