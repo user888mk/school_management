@@ -23,4 +23,12 @@ public class TeacherService {
         findAll().add(teacher);
         teacher.setId(findAll().size());
     }
+
+    public Teacher findById(int id) {
+        return findAll().stream()
+                .filter(teacher -> teacher.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
 }

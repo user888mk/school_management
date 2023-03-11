@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.masters.coding.common.Language;
 import pl.masters.coding.teacher.model.Teacher;
 
-import java.util.List;
-
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/teachers")
@@ -37,4 +35,6 @@ public class TeacherController {
         teacherService.deleteTeacher(id);
         return "redirect:/teachers";
     }
+
+
 }

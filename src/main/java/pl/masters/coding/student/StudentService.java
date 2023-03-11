@@ -3,8 +3,6 @@ package pl.masters.coding.student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.masters.coding.student.model.Student;
-import pl.masters.coding.teacher.TeacherRepository;
-import pl.masters.coding.teacher.model.Teacher;
 
 import java.util.List;
 
@@ -24,5 +22,12 @@ public class StudentService {
     public void createStudent(Student student) {
         findAll().add(student);
         student.setId(findAll().size());
+    }
+
+    public Student findById(int id) {
+        return findAll().stream()
+                .filter(student -> student.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 }
