@@ -26,6 +26,7 @@ public class StudentController {
 
     @PostMapping("/create")
     public String createStudent(@ModelAttribute Student student, @RequestParam("teacherId") int teacherId, @RequestParam("language") Language language) {
+        //TODO: do ogarnięcia przeniesienie walidacji do serwisu lub zrobienie walidacji adnotacjami na poziomie klasy (spring-boot-starter-validation)
         Teacher teacher = teacherService.findById(teacherId);
         if (teacher.getLanguages().contains(language)) {
             student.setTeacher(teacher);
